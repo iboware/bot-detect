@@ -11,3 +11,8 @@ build:
 .PHONY: run
 run:
 	./bin/botdetect service
+
+.PHONY: generate
+generate:
+	echo "=> Generating Proto Files"
+	buf generate proto/schema.proto

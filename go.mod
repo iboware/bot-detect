@@ -4,8 +4,10 @@ go 1.19
 
 require (
 	cloud.google.com/go/pubsub v1.28.0
+	github.com/golang/mock v1.6.0
 	github.com/spf13/cobra v1.6.1
 	github.com/spf13/pflag v1.0.5
+	google.golang.org/protobuf v1.28.1
 )
 
 require (
@@ -29,5 +31,4 @@ require (
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/genproto v0.0.0-20230119192704-9d59e20e5cd1 // indirect
 	google.golang.org/grpc v1.52.0 // indirect
-	google.golang.org/protobuf v1.28.1 // indirect
 )
