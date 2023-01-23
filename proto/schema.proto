@@ -1,0 +1,15 @@
+syntax = "proto3";
+package model;
+option go_package = "./model;model";
+message IncomingMsg {
+  string key = 1;
+  string timestamp = 2;
+  string ip = 3;
+  string url = 4;
+  }
+message OutgoingMsg {
+  string key = 1;
+  string timestamp = 2;
+  bool isBot = 3;
+  bool isConversion = 4;
+  }
