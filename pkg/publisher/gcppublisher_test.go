@@ -13,9 +13,8 @@ func TestGCPPublisher_Publish(t *testing.T) {
 		Topic  *pubsub.Topic
 	}
 	type args struct {
-		ctx     context.Context
-		topicID string
-		msg     []byte
+		ctx context.Context
+		msg []byte
 	}
 	tests := []struct {
 		name    string
@@ -31,7 +30,7 @@ func TestGCPPublisher_Publish(t *testing.T) {
 				Client: tt.fields.Client,
 				Topic:  tt.fields.Topic,
 			}
-			if err := p.Publish(tt.args.ctx, tt.args.topicID, tt.args.msg); (err != nil) != tt.wantErr {
+			if err := p.Publish(tt.args.ctx, tt.args.msg); (err != nil) != tt.wantErr {
 				t.Errorf("GCPPublisher.Publish() error = %v, wantErr %v", err, tt.wantErr)
 			}
 		})

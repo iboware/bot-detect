@@ -13,16 +13,14 @@ import (
 const CONVERSION_WORD = "thank-you"
 
 type BotDetector struct {
-	Publisher       publisher.Publisher
-	IPBlockList     map[string]string
-	OutgoingTopicId string
+	Publisher   publisher.Publisher
+	IPBlockList map[string]string
 }
 
 func NewDetector(publisher publisher.Publisher, ipBlockList map[string]string, outgoingTopicId string) Detector {
 	return &BotDetector{
-		Publisher:       publisher,
-		IPBlockList:     ipBlockList,
-		OutgoingTopicId: outgoingTopicId,
+		Publisher:   publisher,
+		IPBlockList: ipBlockList,
 	}
 }
 
@@ -53,7 +51,7 @@ func (d *BotDetector) Detect(ctx context.Context, message []byte) (bool, error) 
 		return false, err
 	}
 
-	if err := d.Publisher.Publish(ctx, d.OutgoingTopicId, outData); err != nil {
+	if err := d.Publisher.Publish(ctx, outData); err != nil {
 		return false, err
 	}
 

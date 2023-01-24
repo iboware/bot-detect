@@ -19,7 +19,7 @@ func NewGCPPublisher(client *pubsub.Client, topicID string) Publisher {
 	}
 }
 
-func (p *GCPPublisher) Publish(ctx context.Context, topicID string, msg []byte) error {
+func (p *GCPPublisher) Publish(ctx context.Context, msg []byte) error {
 	result := p.Topic.Publish(ctx, &pubsub.Message{
 		Data: msg,
 	})

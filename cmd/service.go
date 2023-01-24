@@ -62,11 +62,11 @@ func newServiceCmd() *cobra.Command {
 
 			}
 
-			// Initialize detective
-			detective := detector.NewDetector(pub, blockListMap, cfg.OutboundTopicID)
+			// Initialize detector
+			detector := detector.NewDetector(pub, blockListMap, cfg.OutboundTopicID)
 
 			// Initialize and start the consumer
-			consumer := consumer.NewGCPConsumer(client, sub, detective)
+			consumer := consumer.NewGCPConsumer(client, sub, detector)
 			if err := consumer.Start(ctx); err != nil {
 				log.Fatal("consumer stopped unexpectedly", err)
 			}

@@ -23,3 +23,14 @@ func OutgoingMsgToByteArray(message *model.OutgoingMsg) ([]byte, error) {
 	}
 	return data, nil
 }
+
+func IncomingMsgToByteArray(message *model.IncomingMsg) ([]byte, error) {
+	var (
+		data []byte
+		err  error
+	)
+	if data, err = proto.Marshal(message); err != nil {
+		return nil, err
+	}
+	return data, nil
+}

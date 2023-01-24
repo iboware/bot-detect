@@ -29,9 +29,8 @@ func TestBotDetector_Detect(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			d := &BotDetector{
-				Publisher:       tt.fields.Publisher,
-				IPBlockList:     tt.fields.IPBlockList,
-				OutgoingTopicId: tt.fields.OutgoingTopicId,
+				Publisher:   tt.fields.Publisher,
+				IPBlockList: tt.fields.IPBlockList,
 			}
 			got, err := d.Detect(tt.args.ctx, tt.args.message)
 			if (err != nil) != tt.wantErr {

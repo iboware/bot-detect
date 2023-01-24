@@ -15,6 +15,7 @@ func ParseIPBlockList(r io.Reader) (map[string]string, error) {
 	// read csv values using csv.Reader
 	csvReader := csv.NewReader(r)
 	csvReader.Comma = ';'
+	csvReader.Comment = '#'
 
 	for {
 		rec, err := csvReader.Read()
